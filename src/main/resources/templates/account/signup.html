@@ -1,0 +1,64 @@
+<html layout:decorate="layout/layout" xmlns:layout="http://www.w3.org/1999/xhtml">
+<head><link rel="stylesheet" href="/css/register.style.css"></head>
+<div layout:fragment="content" class="container my-3">
+	<nav th:replace="layout/navbar :: navbarFragment"></nav>	
+ 		<div class="wrapper" style="background-image: url(/images/bg1.jpeg);">
+			<div class="inner">
+				<div class="image-holder">
+					<img src="/images/te4.jpeg" alt="">
+				</div>
+				<form th:action="@{/user/signup}" th:object="${userCreateDto}" method="post">
+					<div th:replace="front/form_errors :: formErrorsFragment"></div>
+					<h3 class="h3-register">Registration Form</h3>
+					<div class="form-wrapper">
+						<input type="text" th:field="*{username}" placeholder="사용자ID" class="form-register" required>
+						<i class="zmdi zmdi-account"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" th:field="*{password1}" placeholder="비밀번호" class="form-register" required>
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="password" th:field="*{password2}" placeholder="비밀번호 확인" class="form-register" required>
+						<i class="zmdi zmdi-lock"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="text" th:field="*{email}" placeholder="이메일" class="form-register" required>
+						<i class="zmdi zmdi-email"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="text" th:field="*{phoneNumber}" placeholder="연락처" class="form-register" required>
+						<i class="zmdi zmdi-account"></i>
+					</div>
+					<div class="form-wrapper">
+						<select name="" id="" th:field="*{gender}" class="form-register" required>
+							<option value="" disabled selected>성별</option>
+							<option value="남자" >남자</option>
+							<option value="여자" >여자</option>
+						</select>
+						<i class="zmdi zmdi-caret-down" style="font-size: 17px"></i>
+					</div>
+					<div class="form-wrapper">
+						<input type="text" th:field="*{age}" placeholder="나이" class="form-register" required>
+						<i class="zmdi zmdi-account"></i>
+					</div>
+
+					<button class="button-register">회원가입
+						<i class="zmdi zmdi-arrow-right"></i>
+					</button>
+				</form>
+			</div>
+		</div>
+		<!-- 푸터 -->
+		<footer class="ftco-footer ftco-section img">
+			<div class="row">
+			  <div class="col-md-12 text-center"> 
+				<p>
+				  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This kit is made with <i class="icon-heart" aria-hidden="true"></i> by For Growing</a>
+				  </p>
+			  </div>
+			</div>
+
+		</footer>
+	</div>
+</html>
